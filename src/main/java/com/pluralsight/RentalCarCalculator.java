@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class RentalCarCalculator {
 
-    //Scanner
     static final Scanner userInput = new Scanner(System.in);
     static final double tollTagPrice = 3.95;
     static final double gPSPrice = 2.95;
@@ -14,7 +13,7 @@ public class RentalCarCalculator {
 
     public static void main(String[] args) {
 
-        //Known Variables
+        //User Prompts
         String userText;
 
         System.out.print("Pickup Date: ");
@@ -35,6 +34,7 @@ public class RentalCarCalculator {
         System.out.print("Age: ");
         int age = Integer.parseInt(userText = userInput.nextLine());
 
+        //Method Call
         pricing(basicCarRental, days, tollTag, gPS, rSA, age);
 
         //Scanner END
@@ -43,20 +43,31 @@ public class RentalCarCalculator {
     // TODO change into printfs
     public static void pricing(double bCRental, int days, String tollTag, String gPS, String rSA, int age) {
         double total = 0.0;
+        double printMath;
+
         System.out.println("--------Total Cost-------");
+
         double basicRentalCost = bCRental * days;
+        System.out.println(String.format("%.2f Base rental cost", basicRentalCost));
         total = total + basicRentalCost;
-        System.out.println(basicRentalCost);
+
         if (tollTag.equals("Y")) {
-            System.out.println(tollTagPrice * days + " Electronic toll tag charge");
+            printMath = tollTagPrice * days;
+            System.out.printf("%.2f  Electronic toll tag charge%n", printMath);
             total = total + (tollTagPrice * days);
         }
         if (gPS.equals("Y")) {
-            System.out.println(gPSPrice * days + " GPS charge");
+            printMath = gPSPrice * days;
+
+            //int randomMath = String.valueOf(printMath).length();
+            //int randomMath2 = String.valueOf(basicRentalCost).length();
+
+            System.out.printf("%.2f  GPS charge%n", printMath);
             total = total + (gPSPrice * days);
         }
         if (rSA.equals("Y")) {
-            System.out.println(rSAPrice * days + " Roadside assistance charge");
+            printMath = rSAPrice * days;
+            System.out.printf("%.2f  Roadside assistance charge", printMath);
             total = total + (rSAPrice * days);
         }
         if (age < 25) {
