@@ -67,7 +67,7 @@ public class RentalCarCalculator {
         }
         if (rSA.equals("Y")) {
             printMath = rSAPrice * days;
-            System.out.printf("%.2f  Roadside assistance charge", printMath);
+            System.out.printf("%.2f  Roadside assistance charge%n", printMath);
             total = total + (rSAPrice * days);
         }
         if (age < 25) {
